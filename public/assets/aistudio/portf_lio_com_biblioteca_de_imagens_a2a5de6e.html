@@ -1,0 +1,311 @@
+<!-- ... existing code ... -->
+    /* Tabela Responsiva de Destaques Literários */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    th {
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    td {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* ESTILOS DA GALERIA INTEGRADA */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .gallery-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-purple);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .img-box {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover .img-box img {
+      transform: scale(1.06);
+    }
+
+    .card-info {
+      padding: 15px;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Modal de Ampliação de Foto */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      max-width: 750px;
+      width: 100%;
+      background: #1e1e2f;
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-img {
+      width: 100%;
+      max-height: 65vh;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .modal-info {
+      padding: 20px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+<!-- ... existing code ... -->
+    <!-- SEÇÃO DE OBRAS E TRAJETÓRIA (TABELA) -->
+    <section class="card">
+      <h2><span>🏆</span> Obras & Destaques Profissionais</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Título / Reconhecimento</th>
+              <th>Categoria</th>
+              <th>Foco / Tema Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Duas Portas</strong></td>
+              <td>Romance Juvenil</td>
+              <td>Educação Financeira & Literatura</td>
+            </tr>
+            <tr>
+              <td><strong>Memórias Afetivas em Prosa e Poesia</strong></td>
+              <td>Livro Solo</td>
+              <td>Resgate Identitário e Familiar</td>
+            </tr>
+            <tr>
+              <td><strong>Prêmio XP de Educação Financeira</strong></td>
+              <td>Premiação Nacional</td>
+              <td>Finalista do Projeto Pedagógico</td>
+            </tr>
+            <tr>
+              <td><strong>Cadeira nº 5 (ALLIULC)</strong></td>
+              <td>Academia de Letras</td>
+              <td>Literatura do Litoral Leste Cearense</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- SEÇÃO GALERIA DE OBRAS E ANTOLOGIAS -->
+    <section class="card">
+      <h2><span>🖼️</span> Galeria de Obras e Participações</h2>
+      <p style="color: var(--text-muted); margin-bottom: 15px;">Clique em qualquer imagem para ver mais detalhes das publicações:</p>
+
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-card" onclick="abrirModal('livro elas brilham.jpeg', 'Antologia Elas Brilham - Vol. V', 'Volume de poesias celebrando a escrita de autoras brasileiras.')">
+          <div class="img-box">
+            <img src="livro elas brilham.jpeg" alt="Elas Brilham" onerror="this.src='https://placehold.co/400x500/1e1e2f/8b5cf6?text=Elas+Brilham'">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Antologia Feminina</span>
+            <h3 class="card-title">Elas Brilham - Vol. V</h3>
+            <p class="card-desc">Volume de poesias celebrando a escrita de autoras brasileiras.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-card" onclick="abrirModal('livros vozes do leste.jpeg', 'Vozes do Leste (ALLILC)', 'Registro literário dos imortais da Academia de Letras do Litoral Leste Cearense.')">
+          <div class="img-box">
+            <img src="livros vozes do leste.jpeg" alt="Vozes do Leste" onerror="this.src='https://placehold.co/400x500/1e1e2f/06b6d4?text=Vozes+do+Leste'">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Academia de Letras</span>
+            <h3 class="card-title">Vozes do Leste</h3>
+            <p class="card-desc">Registro literário dos imortais da região do Litoral Leste.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-card" onclick="abrirModal('livro mãe .jpeg', 'Mãe, Uma Missão Divina', 'Textos dedicados ao afeto incondicional de mãe (Paschoal Editora).')">
+          <div class="img-box">
+            <img src="livro mãe .jpeg" alt="Mãe Uma Missão Divina" onerror="this.src='https://placehold.co/400x500/1e1e2f/8b5cf6?text=Mãe+Missão+Divina'">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Paschoal Editora</span>
+            <h3 class="card-title">Mãe, Uma Missão Divina</h3>
+            <p class="card-desc">Textos dedicados ao afeto incondicional de mãe.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-card" onclick="abrirModal('livro loucuras poéticas.jpeg', 'Loucuras Poéticas', 'Poemas selecionados com destaque de crítica e excelência (Editora La Vita).')">
+          <div class="img-box">
+            <img src="livro loucuras poéticas.jpeg" alt="Loucuras Poéticas" onerror="this.src='https://placehold.co/400x500/1e1e2f/06b6d4?text=Loucuras+Poéticas'">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Editora La Vita</span>
+            <h3 class="card-title">Loucuras Poéticas</h3>
+            <p class="card-desc">Poemas selecionados com destaque de crítica e excelência.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-card" onclick="abrirModal('livro a poesia pode ser livre.jpeg', 'A Poesia Pode Ser Livre', 'Celebração da liberdade de expressão (Editora Contos Livres).')">
+          <div class="img-box">
+            <img src="livro a poesia pode ser livre.jpeg" alt="A Poesia Pode Ser Livre" onerror="this.src='https://placehold.co/400x500/1e1e2f/8b5cf6?text=Poesia+Livre'">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Contos Livres</span>
+            <h3 class="card-title">A Poesia Pode Ser Livre</h3>
+            <p class="card-desc">Celebração da liberdade de expressão e sensibilidade versada.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-card" onclick="abrirModal('livro a magia do natal v3.jpeg', 'Magia de Natal - Vol. 3', 'Contos e memórias que celebram o espírito natalino.')">
+          <div class="img-box">
+            <img src="livro a magia do natal v3.jpeg" alt="Magia de Natal" onerror="this.src='https://placehold.co/400x500/1e1e2f/06b6d4?text=Magia+de+Natal'">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Antologia Temática</span>
+            <h3 class="card-title">Magia de Natal V3</h3>
+            <p class="card-desc">Contos e memórias que celebram o espírito natalino.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- SEÇÃO DE CONTATO E REDES SOCIAIS -->
+    <section class="card" style="text-align: center;">
+      <h2><span>🌐</span> Conecte-se Comigo</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Acompanhe minhas publicações, leituras e projetos pedagógicos nas redes sociais:</p>
+      <a href="https://www.instagram.com/xenia_cardoso?exln=MW53bDBldGcyYzR1dQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+        <span>📸</span> Visitar meu Instagram
+      </a>
+    </section>
+
+  </div>
+
+  <!-- MODAL DE AMPLIAÇÃO DE FOTOS DA GALERIA -->
+  <div class="modal" id="imageModal" onclick="fecharModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="fecharModal()">&times;</span>
+      <img id="modalImg" src="" alt="" class="modal-img">
+      <div class="modal-info">
+        <h3 id="modalTitle" class="card-title" style="font-size: 1.4rem;"></h3>
+        <p id="modalDesc" class="card-desc" style="font-size: 0.95rem; margin-top: 6px;"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal(src, titulo, desc) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('modalTitle').innerText = titulo;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('imageModal').style.display = 'flex';
+    }
+
+    function fecharModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
